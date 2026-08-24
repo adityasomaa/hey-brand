@@ -1,0 +1,32 @@
+{
+  "name": "hey-brand",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/generate-art.mjs && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "art": "node scripts/generate-art.mjs",
+    "contrast": "node scripts/check-contrast.mjs",
+    "overflow": "node scripts/audit-overflow.mjs"
+  },
+  "dependencies": {
+    "lenis": "^1.3.26",
+    "motion": "^13.1.1",
+    "next": "^16.3.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "postcss": "^8.5.26",
+    "puppeteer-core": "^25.8.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "wawoff2": "^2.0.1"
+  }
+}
