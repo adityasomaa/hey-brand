@@ -29,7 +29,10 @@ export function Wordmark({
   flat = false,
 }: WordmarkProps) {
   const top = tone === "on-ink" ? "text-paper" : "text-ink";
-  const plateB = tone === "on-ink" ? "text-paper/35" : "text-ink/25";
+  // On ink the plain accent disappears against the accent curtain panel, so the
+  // lifted accent is used instead: it reads on both ink and accent.
+  const plateA = tone === "on-ink" ? "text-accent-lift" : "text-accent";
+  const plateB = tone === "on-ink" ? "text-paper/40" : "text-ink/25";
 
   if (flat) {
     return <span className={`${top} ${className}`}>{text}</span>;
@@ -43,7 +46,7 @@ export function Wordmark({
       {/* Plate 1 — accent. Sits furthest out of register. */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 select-none text-accent"
+        className={`pointer-events-none absolute inset-0 select-none ${plateA}`}
         style={{
           transform:
             "translate3d(var(--plate-a-x, 0px), var(--plate-a-y, 0px), 0)",

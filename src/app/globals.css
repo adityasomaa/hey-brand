@@ -869,13 +869,19 @@
   }
   .curtain-mark[data-shown="true"] {
     opacity: 1;
-    transition-delay: 120ms;
+    /* Held until the plates have actually covered the viewport, otherwise the
+       mark ghosts over the page content on the way down. */
+    transition-delay: 430ms;
+  }
+  /* Boot starts already covered, so the mark can appear immediately. */
+  .curtain[data-variant="boot"][data-phase="boot"] .curtain-mark[data-shown="true"] {
+    transition-delay: 60ms;
   }
 
   /* Boot loader only: the plates of the wordmark drift into register.
      This is what separates the first-load loader from the page curtain. */
   .curtain[data-variant="boot"][data-phase="boot"] .curtain-mark [data-wordmark] {
-    animation: plate-register 900ms var(--ease-out-expo) both;
+    animation: plate-register 1000ms cubic-bezier(0.33, 0.9, 0.4, 1) both;
   }
   .curtain[data-variant="boot"] .curtain-plate {
     transition-duration: 700ms;
@@ -909,13 +915,13 @@
 
 @keyframes plate-register {
   0% {
-    --plate-a-x: -22px;
-    --plate-a-y: 12px;
-    --plate-b-x: 16px;
-    --plate-b-y: -10px;
+    --plate-a-x: -34px;
+    --plate-a-y: 18px;
+    --plate-b-x: 26px;
+    --plate-b-y: -15px;
     opacity: 0;
   }
-  35% { opacity: 1; }
+  22% { opacity: 1; }
   100% {
     --plate-a-x: 0px;
     --plate-a-y: 0px;
