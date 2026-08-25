@@ -49,6 +49,10 @@ const ROUTES = [
 const VIEWPORTS = [
   { name: "375", width: 375, height: 812, mobile: true, headingBudget: 3 },
   { name: "768", width: 768, height: 1024, mobile: false, headingBudget: 2 },
+  // 1024 and 1280 are the laptop widths the brief's three checkpoints skip
+  // over, and they are where a desktop two-column hero actually gets tight.
+  { name: "1024", width: 1024, height: 768, mobile: false, headingBudget: 2 },
+  { name: "1280", width: 1280, height: 800, mobile: false, headingBudget: 2 },
   { name: "1440", width: 1440, height: 900, mobile: false, headingBudget: 2 },
 ];
 

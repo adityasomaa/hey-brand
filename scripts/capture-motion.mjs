@@ -1,6 +1,18 @@
 /**
- * Captures frames DURING the animations, not after them, so the motion can be
- * inspected as pixels rather than inferred from DOM state.
+ * ============================================================================
+ * Motion frame capture.
+ * ============================================================================
+ *
+ * Captures frames DURING the animations rather than after they settle, so the
+ * motion can be checked as pixels instead of inferred from DOM state. Every
+ * frame is written with the phase the state machine was in when it was taken,
+ * which makes it obvious if the visual and the state ever disagree.
+ *
+ * Covers: the boot loader (plates arriving out of register, then converging),
+ * the hero at both pointer extremes, the work card mid cross-fade, and the
+ * page-transition curtain sampled right through close -> held -> open.
+ *
+ * node scripts/capture-motion.mjs <baseUrl> <outDir>
  */
 import puppeteer from "puppeteer-core";
 import { mkdirSync } from "node:fs";

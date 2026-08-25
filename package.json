@@ -9,7 +9,10 @@
     "lint": "next lint",
     "art": "node scripts/generate-art.mjs",
     "contrast": "node scripts/check-contrast.mjs",
-    "overflow": "node scripts/audit-overflow.mjs"
+    "overflow": "node scripts/audit-overflow.mjs",
+    "verify": "node scripts/verify-interactions.mjs",
+    "motion": "node scripts/capture-motion.mjs",
+    "shots": "node scripts/shots.mjs"
   },
   "dependencies": {
     "lenis": "^1.3.26",

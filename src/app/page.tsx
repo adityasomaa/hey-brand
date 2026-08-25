@@ -57,7 +57,7 @@ export default function HomePage() {
           <Reveal>
             <SectionHeader
               headingId="layanan-heading"
-            label="Layanan"
+              label="Layanan"
               headline="Tiga lini yang kami kerjakan"
               description="Ketiganya bisa dikerjakan terpisah, tetapi paling berguna ketika berurutan: menetapkan arah, menyusun sistem visualnya, lalu menjalankannya di media sosial."
               inlineCta

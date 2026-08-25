@@ -34,7 +34,7 @@
   --text-h3--line-height: 1.2;
   --text-h2: clamp(1.75rem, 1.35rem + 2vw, 3rem);
   --text-h2--line-height: 1.08;
-  --text-h1: clamp(2.25rem, 1.5rem + 3.6vw, 4rem);
+  --text-h1: clamp(2.25rem, 1.5rem + 3.1vw, 3.75rem);
   --text-h1--line-height: 1.02;
   --text-display: clamp(2.75rem, 1.4rem + 6.4vw, 7rem);
   --text-display--line-height: 0.94;
@@ -737,7 +737,7 @@
     /* Desktop puts the stage in its own column, so it is width-driven again. */
     .hero-stage {
       height: auto;
-      width: min(34vw, 26rem);
+      width: min(30vw, 23rem);
       max-height: none;
     }
   }

@@ -213,7 +213,7 @@ export function Hero({ label, headline, description }: HeroProps) {
       />
 
       <div className="shell relative z-raised h-full">
-        <div className="hero-grid grid h-full grid-rows-[minmax(0,1fr)_auto] gap-7 lg:grid-cols-[1.06fr_0.94fr] lg:grid-rows-1 lg:items-center lg:gap-16">
+        <div className="hero-grid grid h-full grid-rows-[minmax(0,1fr)_auto] gap-7 lg:grid-cols-[1.3fr_0.7fr] lg:grid-rows-1 lg:items-center lg:gap-16">
           {/* Plate composition. Its own column on desktop, above the copy on
               small screens, so it never sits behind the text and the copy
               needs no scrim to stay readable. */}

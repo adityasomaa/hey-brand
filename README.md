@@ -119,9 +119,11 @@ One family, self-hosted: **Neue Montreal**, converted from the supplied TTFs to 
 | `--text-body` | 1rem | body |
 | `--text-meta` | 0.8125rem | eyebrows, labels, captions |
 
-**Heading line budget** is enforced per viewport and measured, not eyeballed: **3 lines at 375, 2 at 768, 1–2 at 1440**, nothing at 4 lines anywhere. It is controlled by font size and per-breakpoint `max-width` in `ch` (`.headline`, `.headline-long`) — never by hard line breaks, so each width finds its own break points. `npm run overflow` measures every heading on every route at all three widths and fails the build if any budget is exceeded.
+**Heading line budget** is enforced per viewport and measured, not eyeballed: **3 lines at 375, 2 everywhere above it**, nothing at 4 lines anywhere. It is controlled by font size and per-breakpoint `max-width` in `ch` (`.headline`, `.headline-long`) — never by hard line breaks, so each width finds its own break points.
 
-One deliberate exception worth naming: the home `h1` is **two lines on desktop**, not one. The hero is a two-column composition and the right column belongs to the interactive plates; forcing one line would mean shrinking the headline to about 40px and losing its presence. Every other desktop heading resolves to one line.
+`npm run overflow` measures every heading on every route at **375 / 768 / 1024 / 1280 / 1440** and fails if any budget is exceeded. The two laptop widths are in there deliberately: the brief named three checkpoints, but a two-column desktop hero is tightest at 1024–1280, and the home `h1` did overrun to three lines there until the copy column was widened and the `h1` cap brought down to 3.75rem. It would have passed a three-width audit while being wrong on the most common laptop screens.
+
+One outcome worth naming rather than hiding: the home `h1` is **two lines on desktop**, not one. The hero is a two-column composition and the right column belongs to the interactive plates; forcing one line would mean dropping the headline to about 40px and losing its presence. Every other desktop heading resolves to one line.
 
 ### Spacing
 
@@ -224,9 +226,10 @@ npm run dev
 |---|---|
 | `npm run art` | regenerates every SVG composition and the site icon (deterministic — same bytes every time) |
 | `npm run contrast` | audits all colour token pairs against WCAG, exits non-zero on failure |
-| `npm run overflow` | drives Chrome over every route at 375 / 768 / 1440: horizontal overflow, heading line budgets, broken images, failed requests, console errors |
-| `node scripts/verify-interactions.mjs <url>` | 50 assertions across all three interactive moments, their fallbacks, the transition (including the backgrounded-tab case), the listbox keyboard contract, server-side validation, the WhatsApp message, consent storage, and the mobile menu |
-| `node scripts/shots.mjs <url> <dir>` | renders screenshots at every breakpoint |
+| `npm run overflow -- <url>` | drives Chrome over every route at 375 / 768 / 1024 / 1280 / 1440: horizontal overflow, heading line budgets, broken images, failed requests, console errors |
+| `npm run verify -- <url>` | 50 assertions across all three interactive moments, their fallbacks, the transition (including the backgrounded-tab case), the listbox keyboard contract, server-side validation, the WhatsApp message, consent storage, and the mobile menu |
+| `npm run motion -- <url> <dir>` | captures frames *during* the animations, each labelled with the state-machine phase it was taken in, so motion can be checked as pixels rather than inferred |
+| `npm run shots -- <url> <dir>` | renders settled screenshots at every breakpoint |
 
 `npm run build` runs `npm run art` first, so the artwork can never drift from its source.
 
